@@ -1,0 +1,14 @@
+.bettercuv-dark,
+.bettercuv-dark body {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+.bettercuv-dark a,
+.bettercuv-dark .btn,
+.bettercuv-dark .navbar,
+.bettercuv-dark .card {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+    border-color: #333 !important;
+}
