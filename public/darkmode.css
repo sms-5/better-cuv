@@ -1,14 +1,104 @@
-.bettercuv-dark,
-.bettercuv-dark body {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
+:root {
+    --bg: #1a1a1a;
+    --bg-light: #2a2b2c;
+    --bg-card: #3d3d3e;
+    --text: #e0e0e0;
+    --black-text: #1a1a1a;
 }
 
-.bettercuv-dark a,
-.bettercuv-dark .btn,
-.bettercuv-dark .navbar,
-.bettercuv-dark .card {
-    background-color: #1f1f1f !important;
-    color: #ffffff !important;
-    border-color: #333 !important;
+/* body */
+.bettercuv-dark,
+.bettercuv-dark #page,
+.bettercuv-dark .main-inner {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    color-scheme: dark;
+}
+
+/* textos e iconos*/
+.bettercuv-dark nav div,
+.bettercuv-dark nav a,
+.bettercuv-dark span,
+.bettercuv-dark .main-inner i,
+.bettercuv-dark .progress-text,
+.bettercuv-dark .btn-group button,
+.bettercuv-dark li a {
+    color: var(--text) !important;
+}
+
+/* icono usuario */
+.bettercuv-dark .userinitials {
+    color: var(--black-text) !important;
+}
+
+/*cartas cursos*/
+.bettercuv-dark .card .course-card {
+    border: 2px solid #555555 !important;
+    border-radius: 0.5rem !important;
+}
+
+.bettercuv-dark .card .course-card .card-footer,
+.bettercuv-dark .card .course-card div {
+    background-color: var(--bg-card) !important;
+}
+
+/* nav */
+.bettercuv-dark nav {
+    background-color: var(--bg-light) !important;
+    border-bottom: 2px solid var(--bg-card) !important;
+}
+
+/* dropdown menu */
+.bettercuv-dark .show ul {
+    background-color: var(--bg-light) !important;
+    border: 2px solid var(--bg-card) !important;
+}
+
+/* menu 3 dots */
+.bettercuv-dark .dropdown-menu.dropdown-menu-right.show,
+.bettercuv-dark .dropdown-menu.show {
+    background-color: var(--bg-light) !important;
+    border: 2px solid var(--bg-card) !important;
+    a {
+        color: var(--text) !important;
+    }
+}
+
+/* main */
+.bettercuv-dark .main-inner,
+.bettercuv-dark div #region-main-box #region-main,
+.bettercuv-dark .card,
+.bettercuv-dark div .card-footer,
+.bettercuv-dark #page-content .pb-3 .d-print-block {
+    background-color: var(--bg-light) !important;
+}
+
+/* hover del nav */
+.bettercuv-dark a:hover {
+    background-color: var(--bg-card) !important;
+}
+
+/* hover y focus */
+.bettercuv-dark button:hover,
+.bettercuv-dark .btn.btn-icon:focus,
+.bettercuv-dark form-control:focus,
+.bettercuv-dark .nav-item a:focus {
+    background-color: #4f4f4f !important;
+}
+
+/* search box */
+.bettercuv-dark input {
+    background-color: var(--bg-card) !important;
+}
+
+/* popover ? */
+.bettercuv-dark .popover-body {
+    background-color: var(--bg-light) !important;
+    color: var(--text) !important;
+    a {
+        color: #717171 !important;
+    }
+    .icon {
+        color: var(--text) !important;
+    }
 }

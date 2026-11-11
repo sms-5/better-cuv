@@ -1,18 +1,20 @@
 {
-  "name": "Better CUV",
-  "version": "1.0",
   "manifest_version": 3,
-  "description": "Extensión que mejora el CUV Moodle con modo oscuro.",
-  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "name": "Better SED",
+  "version": "0.1.0",
+  "description": "Modo oscuro, interfaz minimalista y sesión activa para SED (ex CUV).",
+  "permissions": ["storage"],
   "action": {
+    "default_title": "Better SED",
     "default_popup": "index.html"
   },
-  "host_permissions": ["https://cuv-fceyt.unse.edu.ar/*"],
   "content_scripts": [
     {
       "matches": ["https://cuv-fceyt.unse.edu.ar/*"],
       "js": ["content.js"],
-      "css": ["darkmode.css"]
-    } 
+      "css": ["darkmode.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
   ]
 }

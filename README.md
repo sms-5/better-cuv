@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Better SED
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Extensión de Chromium para la plataforma **SED** (ex CUV) de la FCEyT-UNSE.
 
-Currently, two official plugins are available:
+Hace tres cosas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Modo oscuro** para Moodle/Boost.
+- **Interfaz minimalista** (en desarrollo).
+- **Mantiene la sesión activa** mientras Chrome esté abierto y haya una pestaña de SED.
 
-## React Compiler
+## Instalar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Después, en Chrome o Brave:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Abrir `chrome://extensions`.
+2. Activar el modo desarrollador.
+3. "Cargar descomprimida" y elegir la carpeta `dist`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Para desarrollo: `npm run watch` recompila al guardar; hay que recargar la extensión desde
+`chrome://extensions` para ver los cambios del content script.
+
+## Estructura
+
 ```
+public/manifest.json     Manifest V3 (solo permiso storage)
+public/darkmode.css      Tema oscuro
+src/content/content.ts   Settings + keepalive de sesión
+src/popup/Popup.ts       Popup (TypeScript, sin framework)
+src/styles/Popup.css     Estilos del popup
+index.html               Entrypoint del popup
+vite.config.ts           Build de popup + content.js
+```
+
+Los settings se guardan en `chrome.storage.sync` y se aplican como clases en `<html>`:
+`.bettercuv-dark` y (próximamente) `.bettercuv-minimal`.
+
+## Sesión
+
+El content script llama a `core_session_touch` cada 10 minutos, el mismo endpoint que usa
+Moodle. Solo funciona con Chrome abierto y una pestaña de SED cargada; no sobrevive a cerrar
+el navegador ni a dormir la máquina más de 8 horas.
+
+## Estado
+
+Fase 1 completa: settings persistentes, popup sin React y keepalive. El plan completo está en
+[`HANDOFF.md`](./HANDOFF.md).
