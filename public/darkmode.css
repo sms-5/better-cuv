@@ -1,104 +1,1433 @@
-:root {
-    --bg: #1a1a1a;
-    --bg-light: #2a2b2c;
-    --bg-card: #3d3d3e;
-    --text: #e0e0e0;
-    --black-text: #1a1a1a;
-}
+/* Better SED - tema oscuro para Moodle Boost.
+   Todo scopeado a .bettercuv-dark (clase en <html>). */
 
-/* body */
-.bettercuv-dark,
-.bettercuv-dark #page,
-.bettercuv-dark .main-inner {
-    background-color: var(--bg) !important;
-    color: var(--text) !important;
+.bettercuv-dark {
+    --bcv-bg: #101218;
+    --bcv-bg-elev: #171a23;
+    --bcv-surface: #1c202b;
+    --bcv-surface-2: #232838;
+    --bcv-border: #2c3244;
+    --bcv-border-strong: #3a4258;
+    --bcv-text: #e6e9f2;
+    --bcv-text-muted: #a6aec4;
+    --bcv-text-dim: #7c8499;
+    --bcv-accent: #9db4ff;
+    --bcv-accent-hover: #c2d0ff;
+    --bcv-accent-strong: #6f8dff;
+    --bcv-accent-soft: rgba(157, 180, 255, 0.12);
+    --bcv-success: #7fd6a0;
+    --bcv-warning: #f0c674;
+    --bcv-danger: #ff9a9a;
+    --bcv-info: #8ecdf0;
+    --bcv-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
     color-scheme: dark;
 }
 
-/* textos e iconos*/
-.bettercuv-dark nav div,
-.bettercuv-dark nav a,
-.bettercuv-dark span,
-.bettercuv-dark .main-inner i,
-.bettercuv-dark .progress-text,
-.bettercuv-dark .btn-group button,
-.bettercuv-dark li a {
-    color: var(--text) !important;
+/* ---------- base ---------- */
+
+.bettercuv-dark body {
+    background-color: var(--bcv-bg) !important;
+    background-image: radial-gradient(
+        1000px 600px at 50% -250px,
+        rgba(111, 141, 255, 0.1),
+        transparent 70%
+    ) !important;
+    background-repeat: no-repeat !important;
+    color: var(--bcv-text) !important;
 }
 
-/* icono usuario */
+.bettercuv-dark .bg-pulse-grey {
+    background-color: var(--bcv-border-strong) !important;
+}
+
+.bettercuv-dark #page,
+.bettercuv-dark #page-wrapper,
+.bettercuv-dark #page-content,
+.bettercuv-dark #region-main,
+.bettercuv-dark #region-main-box,
+.bettercuv-dark .main-inner {
+    background: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark h1,
+.bettercuv-dark h2,
+.bettercuv-dark h3,
+.bettercuv-dark h4,
+.bettercuv-dark h5,
+.bettercuv-dark h6,
+.bettercuv-dark .h1,
+.bettercuv-dark .h2,
+.bettercuv-dark .h3,
+.bettercuv-dark .h4,
+.bettercuv-dark .h5,
+.bettercuv-dark .h6 {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark hr {
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark a {
+    color: var(--bcv-accent);
+}
+
+.bettercuv-dark a:hover,
+.bettercuv-dark a:focus {
+    color: var(--bcv-accent-hover);
+}
+
+.bettercuv-dark .text-muted,
+.bettercuv-dark .muted,
+.bettercuv-dark .dimmed_text,
+.bettercuv-dark .dimmed {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .text-primary {
+    color: var(--bcv-accent) !important;
+}
+
+/* Los iconos del tema son SVG negros servidos como <img>. */
+.bettercuv-dark img.icon[src*="/theme/image.php/"] {
+    filter: invert(0.9);
+}
+
+.bettercuv-dark ::selection {
+    background: rgba(157, 180, 255, 0.3);
+    color: var(--bcv-text);
+}
+
+.bettercuv-dark * {
+    scrollbar-color: var(--bcv-border-strong) transparent;
+}
+
+.bettercuv-dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.bettercuv-dark ::-webkit-scrollbar-thumb {
+    background: var(--bcv-border-strong);
+    border-radius: 999px;
+}
+
+.bettercuv-dark ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bettercuv-dark .moodle-dialogue-base .closebutton {
+    color: white !important;
+}
+
+/* ---------- navbar ---------- */
+
+.bettercuv-dark .navbar,
+.bettercuv-dark nav.navbar {
+    background-color: rgba(21, 26, 38, 0.96) !important;
+    border-bottom: 1px solid var(--bcv-border) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+}
+
+.bettercuv-dark .navbar a,
+.bettercuv-dark .navbar .nav-link,
+.bettercuv-dark .navbar .navbar-brand {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .navbar a:hover,
+.bettercuv-dark .navbar a:focus,
+.bettercuv-dark .navbar .nav-link:hover,
+.bettercuv-dark .navbar .nav-link:focus {
+    color: var(--bcv-text) !important;
+    background: transparent !important;
+}
+
+.bettercuv-dark .navbar .nav-link.active {
+    background-color: transparent !important;
+    border-bottom-color: var(--bcv-accent) !important;
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .navbar .navbar-toggler {
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
 .bettercuv-dark .userinitials {
-    color: var(--black-text) !important;
+    background-color: var(--bcv-accent) !important;
+    color: #101218 !important;
 }
 
-/*cartas cursos*/
-.bettercuv-dark .card .course-card {
-    border: 2px solid #555555 !important;
-    border-radius: 0.5rem !important;
+/* ---------- drawers y course index ---------- */
+
+.bettercuv-dark .drawer,
+.bettercuv-dark .drawercontent,
+.bettercuv-dark .drawerheader {
+    background-color: var(--bcv-bg-elev) !important;
+    color: var(--bcv-text) !important;
+    border-color: var(--bcv-border) !important;
 }
 
-.bettercuv-dark .card .course-card .card-footer,
-.bettercuv-dark .card .course-card div {
-    background-color: var(--bg-card) !important;
+.bettercuv-dark .drawerheader {
+    border-bottom: 1px solid var(--bcv-border) !important;
 }
 
-/* nav */
-.bettercuv-dark nav {
-    background-color: var(--bg-light) !important;
-    border-bottom: 2px solid var(--bg-card) !important;
+.bettercuv-dark .drawer-toggler,
+.bettercuv-dark .drawer-toggles .drawer-toggler {
+    background-color: var(--bcv-surface) !important;
+    color: var(--bcv-text-muted) !important;
+    border: 1px solid var(--bcv-border) !important;
+    box-shadow: var(--bcv-shadow);
 }
 
-/* dropdown menu */
-.bettercuv-dark .show ul {
-    background-color: var(--bg-light) !important;
-    border: 2px solid var(--bg-card) !important;
+.bettercuv-dark .drawer-toggler:hover {
+    color: var(--bcv-text) !important;
+    background-color: var(--bcv-surface-2) !important;
 }
 
-/* menu 3 dots */
-.bettercuv-dark .dropdown-menu.dropdown-menu-right.show,
-.bettercuv-dark .dropdown-menu.show {
-    background-color: var(--bg-light) !important;
-    border: 2px solid var(--bg-card) !important;
-    a {
-        color: var(--text) !important;
-    }
+.bettercuv-dark .drawer-toggler .btn {
+    background-color: transparent !important;
+    color: var(--bcv-text-muted) !important;
 }
 
-/* main */
-.bettercuv-dark .main-inner,
-.bettercuv-dark div #region-main-box #region-main,
-.bettercuv-dark .card,
-.bettercuv-dark div .card-footer,
-.bettercuv-dark #page-content .pb-3 .d-print-block {
-    background-color: var(--bg-light) !important;
+.bettercuv-dark .drawer-toggler .btn:hover {
+    background-color: transparent !important;
+    color: var(--bcv-text) !important;
 }
 
-/* hover del nav */
-.bettercuv-dark a:hover {
-    background-color: var(--bg-card) !important;
+.bettercuv-dark .courseindex-item {
+    color: var(--bcv-text-muted) !important;
 }
 
-/* hover y focus */
-.bettercuv-dark button:hover,
-.bettercuv-dark .btn.btn-icon:focus,
-.bettercuv-dark form-control:focus,
-.bettercuv-dark .nav-item a:focus {
-    background-color: #4f4f4f !important;
+.bettercuv-dark .courseindex-item:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: var(--bcv-text) !important;
 }
 
-/* search box */
-.bettercuv-dark input {
-    background-color: var(--bg-card) !important;
+.bettercuv-dark .courseindex-item.pageitem,
+.bettercuv-dark .courseindex-item.active {
+    background-color: var(--bcv-accent-soft) !important;
+    color: var(--bcv-text) !important;
 }
 
-/* popover ? */
+/* ---------- cards ---------- */
+
+.bettercuv-dark .card {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .card-header,
+.bettercuv-dark .card-footer {
+    background-color: transparent !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .card-body {
+    background-color: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .course-card,
+.bettercuv-dark .dashboard-card {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+.bettercuv-dark .course-card .card-footer,
+.bettercuv-dark .dashboard-card .card-footer {
+    background-color: transparent !important;
+    border-top: 0 !important;
+}
+
+.bettercuv-dark .course-card .coursename a,
+.bettercuv-dark .dashboard-card .coursename a {
+    color: var(--bcv-accent) !important;
+}
+
+/* Cartas de curso: mas aire y titulos con mejor interlineado. */
+.bettercuv-dark .course-card .course-info-container {
+    padding: 16px !important;
+}
+
+.bettercuv-dark .course-card .coursename {
+    display: block;
+    font-size: 15px !important;
+    font-weight: 600;
+    line-height: 1.6 !important;
+    margin-bottom: 8px !important;
+}
+
+.bettercuv-dark .course-card .coursemenubtn {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .course-card .coursemenubtn:hover {
+    color: var(--bcv-text) !important;
+}
+
+/* ---------- dropdowns ---------- */
+
+.bettercuv-dark .dropdown-menu {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 10px;
+    box-shadow: var(--bcv-shadow);
+}
+
+.bettercuv-dark .dropdown-item {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .dropdown-item:hover,
+.bettercuv-dark .dropdown-item:focus {
+    background-color: var(--bcv-accent-soft) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .dropdown-header {
+    color: var(--bcv-text-dim) !important;
+}
+
+.bettercuv-dark .dropdown-divider {
+    border-color: var(--bcv-border) !important;
+}
+
+/* ---------- tabs (navegacion del curso y formato onetopic) ---------- */
+
+.bettercuv-dark .nav-tabs {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--bcv-border) !important;
+}
+
+.bettercuv-dark .moremenu,
+.bettercuv-dark .secondary-navigation {
+    background-color: transparent !important;
+}
+
+/* La linea clara del nav duplicaba el borde inferior del ul. */
+.bettercuv-dark .secondary-navigation .moremenu.navigation {
+    border-bottom: 0 !important;
+}
+
+/* Tabs del curso como pills: misma altura y radio que las de onetopic. */
+.bettercuv-dark .secondary-navigation .nav-tabs {
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 8px;
+}
+
+.bettercuv-dark .secondary-navigation .nav-tabs .nav-item {
+    height: auto;
+}
+
+.bettercuv-dark .secondary-navigation .nav-tabs .nav-link {
+    display: inline-flex;
+    align-items: center;
+    height: auto !important;
+    min-height: 36px;
+    border: 0 !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .nav-tabs .nav-link {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 8px 8px 0 0;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .nav-tabs .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .nav-tabs .nav-link.active {
+    background-color: var(--bcv-surface-2) !important;
+    border-bottom-color: var(--bcv-accent) !important;
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .nav-pills .nav-link {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 8px;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .nav-pills .nav-link:hover {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .nav-pills .nav-link.active {
+    background-color: var(--bcv-accent-soft) !important;
+    border-color: var(--bcv-accent) !important;
+    color: var(--bcv-text) !important;
+}
+
+/* onetopic pinta los tabs con estilos inline; esto los unifica */
+.bettercuv-dark .format-onetopic .nav-link,
+.bettercuv-dark .onetopic .nav-link,
+.bettercuv-dark .nav-tabs .nav-link[style] {
+    background-color: transparent !important;
+    color: var(--bcv-text-muted) !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+}
+
+.bettercuv-dark .format-onetopic .nav-link.active,
+.bettercuv-dark .onetopic .nav-link.active,
+.bettercuv-dark .nav-tabs .nav-link.active[style] {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-accent) !important;
+    font-weight: 600;
+}
+
+/* Los tabs de onetopic son muchos: una sola fila con scroll en vez de una grilla. */
+.bettercuv-dark .format_onetopic-tabs {
+    flex-wrap: nowrap !important;
+    gap: 4px;
+    padding-bottom: 8px;
+    border-bottom: 0 !important;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.bettercuv-dark .format_onetopic-tabs .nav-item {
+    flex: 0 0 auto;
+}
+
+/* Sin JS no se sabe si hay scroll: el degradado derecho insinua que hay mas tabs.
+   shortcut: el ultimo tab queda atenuado al llegar al final, pasar a un listener de scroll si molesta. */
+.bettercuv-dark .format_onetopic-tabs {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+}
+
+/* ---------- alerts ---------- */
+
+.bettercuv-dark .alert {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-left: 4px solid var(--bcv-accent) !important;
+    border-radius: 10px;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .alert-info {
+    background-color: rgba(142, 205, 240, 0.08) !important;
+    border-left-color: var(--bcv-info) !important;
+}
+
+.bettercuv-dark .alert-success {
+    background-color: rgba(127, 214, 160, 0.08) !important;
+    border-left-color: var(--bcv-success) !important;
+}
+
+.bettercuv-dark .alert-warning {
+    background-color: rgba(240, 198, 116, 0.08) !important;
+    border-left-color: var(--bcv-warning) !important;
+}
+
+.bettercuv-dark .alert-danger,
+.bettercuv-dark .alert-error {
+    background-color: rgba(255, 154, 154, 0.08) !important;
+    border-left-color: var(--bcv-danger) !important;
+}
+
+.bettercuv-dark .alert a {
+    color: var(--bcv-accent) !important;
+}
+
+/* ---------- botones ---------- */
+
+.bettercuv-dark .btn {
+    border-radius: 8px;
+}
+
+.bettercuv-dark .btn-primary {
+    background-color: var(--bcv-accent) !important;
+    border-color: var(--bcv-accent) !important;
+    color: #101218 !important;
+}
+
+.bettercuv-dark .btn-primary:hover,
+.bettercuv-dark .btn-primary:focus {
+    background-color: var(--bcv-accent-hover) !important;
+    border-color: var(--bcv-accent-hover) !important;
+    color: #101218 !important;
+}
+
+.bettercuv-dark .btn-primary.search-icon {
+    color: var(--bcv-bg) !important;
+}
+
+/* Botones de submit de buscadores (foro, mensajes) que Moodle deja en gris claro. */
+.bettercuv-dark .btn-submit {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .btn-secondary,
+.bettercuv-dark .btn-outline-secondary {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .btn-secondary:hover,
+.bettercuv-dark .btn-outline-secondary:hover {
+    background-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .btn-outline-primary {
+    background-color: transparent !important;
+    border-color: var(--bcv-border-strong) !important;
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .btn-outline-primary:hover {
+    background-color: var(--bcv-accent-soft) !important;
+    border-color: var(--bcv-accent) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .btn-link,
+.bettercuv-dark .btn.btn-link {
+    background: transparent !important;
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .btn-icon {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .btn-icon:hover,
+.bettercuv-dark .btn-icon:focus {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .btn-footer-popover {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+    box-shadow: var(--bcv-shadow);
+}
+
+.bettercuv-dark .btn-footer-popover:hover {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+/* ---------- formularios ---------- */
+
+.bettercuv-dark .form-control,
+.bettercuv-dark .custom-select,
+.bettercuv-dark input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"]),
+.bettercuv-dark textarea,
+.bettercuv-dark select {
+    background-color: var(--bcv-surface-2) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 8px;
+    color: var(--bcv-text) !important;
+}
+
+/* El buscador va pegado a su boton: radio solo a la izquierda. */
+.bettercuv-dark .simplesearchform .form-control {
+    border-radius: 8px 0 0 8px;
+}
+
+.bettercuv-dark .form-control:focus,
+.bettercuv-dark .custom-select:focus,
+.bettercuv-dark input:focus,
+.bettercuv-dark textarea:focus,
+.bettercuv-dark select:focus {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-accent) !important;
+    box-shadow: 0 0 0 3px var(--bcv-accent-soft) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark ::placeholder {
+    color: var(--bcv-text-dim) !important;
+}
+
+.bettercuv-dark input[type="checkbox"],
+.bettercuv-dark input[type="radio"] {
+    accent-color: var(--bcv-accent-strong);
+}
+
+.bettercuv-dark .custom-control-label::before {
+    background-color: var(--bcv-surface-2);
+    border-color: var(--bcv-border-strong);
+}
+
+.bettercuv-dark .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--bcv-accent-strong);
+    border-color: var(--bcv-accent-strong);
+}
+
+.bettercuv-dark .custom-file-label {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* ---------- front page y categoria de cursos ---------- */
+
+/* Una sola tarjeta para el arbol: incluye "Expand all" y la lista de cursos. */
+.bettercuv-dark .course_category_tree {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.bettercuv-dark .collapsible-actions {
+    padding: 0 4px 4px;
+    text-align: right;
+}
+
+.bettercuv-dark .categoryname {
+    position: relative;
+    background-image: none !important;
+    border-radius: 6px;
+    margin: 0 !important;
+    padding: 6px 8px 6px 20px !important;
+}
+
+/* Chevron propio: el icono de Moodle es negro y no se puede recolorear. */
+.bettercuv-dark .course_category_tree .category.with_children > .info > .categoryname::before {
+    content: "›";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bcv-text);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.bettercuv-dark .course_category_tree .category.with_children:not(.collapsed) > .info > .categoryname::before {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.bettercuv-dark .categoryname:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.bettercuv-dark .numberofcourse {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .subcategories,
+.bettercuv-dark .courses.category-browse {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 0;
+    padding: 0;
+}
+
+.bettercuv-dark .courses.category-browse {
+    border-top: 1px solid var(--bcv-border) !important;
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+.bettercuv-dark .coursebox {
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+.bettercuv-dark .coursebox:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ---------- tablas ---------- */
+
+.bettercuv-dark .table,
+.bettercuv-dark .generaltable {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .table thead th,
+.bettercuv-dark .generaltable thead th {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .table td,
+.bettercuv-dark .table th,
+.bettercuv-dark .generaltable td,
+.bettercuv-dark .generaltable th {
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .table-striped tbody tr:nth-of-type(odd),
+.bettercuv-dark .generaltable tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Moodle pinta las filas pares de blanco en varias tablas. */
+.bettercuv-dark .table tbody tr:nth-of-type(even),
+.bettercuv-dark .generaltable tbody tr:nth-of-type(even) {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .table-hover tbody tr:hover,
+.bettercuv-dark .generaltable tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    /* Bootstrap pone color oscuro en la fila al pasar el mouse. */
+    color: var(--bcv-text) !important;
+}
+}
+
+/* Foro: las filas suscriptas y el header de actividad vienen pintados en blanco. */
+.bettercuv-dark .discussion-list tbody tr,
+.bettercuv-dark .discussion-list tbody tr.subscribed {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .discussion-list tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.bettercuv-dark .discussion-list tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.bettercuv-dark .activity-header {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* Reporte de calificaciones: Moodle pinta el contenedor y las celdas en blanco. */
+.bettercuv-dark .user-report-container {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.bettercuv-dark .user-grade {
+    background-color: transparent !important;
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .user-grade th.category {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .user-grade td,
+.bettercuv-dark .user-grade th.item {
+    background-color: transparent !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .user-grade tr {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .user-grade a {
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .tertiary-navigation {
+    border-bottom-color: var(--bcv-border) !important;
+}
+
+/* El buscador del action bar tambien es `.btn`; no hereda el texto del nav. */
+.bettercuv-dark .tertiary-navigation .btn:not(.search-icon),
+.bettercuv-dark .tertiary-navigation .dropdown-toggle {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .tertiary-navigation .navitem-divider {
+    background-color: var(--bcv-border) !important;
+}
+
+/* ---------- listas, paginacion y badges ---------- */
+
+.bettercuv-dark .list-group-item {
+    background-color: var(--bcv-surface) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .list-group-item:hover {
+    background-color: var(--bcv-surface-2) !important;
+}
+
+.bettercuv-dark .page-link {
+    background-color: var(--bcv-surface) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .page-link:hover {
+    background-color: var(--bcv-surface-2) !important;
+}
+
+.bettercuv-dark .page-item.active .page-link {
+    background-color: var(--bcv-accent) !important;
+    border-color: var(--bcv-accent) !important;
+    color: #101218 !important;
+}
+
+.bettercuv-dark .badge-secondary {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* Bootstrap 5 usa bg-secondary + text-dark para "Not available" y similares. */
+.bettercuv-dark .badge.bg-secondary {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .badge.bg-primary {
+    background-color: var(--bcv-accent) !important;
+    color: #101218 !important;
+}
+
+.bettercuv-dark .badge-primary {
+    background-color: var(--bcv-accent) !important;
+    color: #101218 !important;
+}
+
+/* ---------- breadcrumb y encabezados ---------- */
+
+.bettercuv-dark .breadcrumb {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .breadcrumb-item a {
+    color: var(--bcv-text-muted);
+}
+
+.bettercuv-dark .breadcrumb-item.active {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--bcv-text-dim);
+}
+
+/* ---------- actividades y contenido del curso ---------- */
+
+.bettercuv-dark .course-content,
+.bettercuv-dark .course-section,
+.bettercuv-dark .section,
+.bettercuv-dark .activity-item,
+.bettercuv-dark .activity {
+    background: transparent !important;
+    border-color: var(--bcv-border) !important;
+}
+
+/* Formato onetopic: cada seccion es una carta con borde claro del tema. */
+.bettercuv-dark .section-item {
+    border-color: var(--bcv-border) !important;
+}
+
+/* Moodle pinta de gris claro las secciones ocultas o huerfanas ("Not available"). */
+.bettercuv-dark .course-section.hidden .section-item,
+.bettercuv-dark .course-section.orphaned .section-item {
+    background-color: transparent !important;
+}
+
+/* El circulo del desplegable de seccion viene celeste claro. */
+.bettercuv-dark .course-section-header .icons-collapse-expand,
+.bettercuv-dark .icons-collapse-expand.fheader {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* La linea que separa cada archivo de su descripcion. */
+.bettercuv-dark .activity-description,
+.bettercuv-dark .activity-altcontent {
+    border-top-color: var(--bcv-border) !important;
+}
+
+/* Fechas de apertura/cierre de la actividad. */
+.bettercuv-dark .activity-dates {
+    border-bottom-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .activity-item {
+    border-bottom: 0 !important;
+    border-radius: 8px;
+    transition: background-color 0.15s ease;
+}
+
+.bettercuv-dark .activity-item:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Moodle colorea los iconos de actividad con filtros (verde, rosa, celeste...).
+   Los dejamos monocromaticos para que no compitan con el acento. */
+.bettercuv-dark img.activityicon {
+    filter: grayscale(1) invert(0.72) !important;
+}
+
+.bettercuv-dark li.activity {
+    border-top: 0 !important;
+}
+
+.bettercuv-dark .activityname a,
+.bettercuv-dark .activity a,
+.bettercuv-dark .activity-instance a {
+    color: var(--bcv-accent);
+}
+
+.bettercuv-dark .activity .availabilityinfo,
+.bettercuv-dark .activity .contentafterlink {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .sectionname,
+.bettercuv-dark .section .sectionname a {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .course-description,
+.bettercuv-dark .summary {
+    color: var(--bcv-text-muted) !important;
+}
+
+/* Contenido con estilos inline del docente: alertas claras y titulos verdes. */
+.bettercuv-dark #region-main p[style*="background"] {
+    background-color: var(--bcv-surface-2) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-left: 4px solid var(--bcv-info) !important;
+    border-radius: 10px !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark #region-main [style*="background"] {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark #region-main [style*="color"] {
+    color: var(--bcv-text) !important;
+}
+
+/* ---------- bloques ---------- */
+
+.bettercuv-dark .block {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px !important;
+}
+
+/* El tema deja el card-body de los bloques sin padding lateral.
+   El tema de Moodle lo pisa con .drawers .block_myoverview > .card-body (misma
+   especificidad, !important y hoja posterior): el html sube la especificidad. */
+html.bettercuv-dark .block > .card-body {
+    padding: 18px !important;
+}
+
+html body div[role="search"][data-region="filter"].d-flex.align-items-center.my-2 {
+    padding-left: 6px !important;
+}
+
+html body h3#instance-46398-header.h5.card-title.d-inline {
+    padding-left: 6px !important;
+}
+
+.bettercuv-dark .block .footer:empty {
+    display: none !important;
+}
+
+.bettercuv-dark .block_myoverview hr,
+.bettercuv-dark .block_myoverview .card-text.content {
+    margin-top: 0 !important;
+}
+
+.bettercuv-dark .block_myoverview hr {
+    display: none !important;
+}
+
+.bettercuv-dark .block .card-title,
+.bettercuv-dark .block .block-title,
+.bettercuv-dark .block h2 {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .block .card-text,
+.bettercuv-dark .block .blockcontent {
+    color: var(--bcv-text-muted) !important;
+}
+
+/* ---------- progreso ---------- */
+
+.bettercuv-dark .progress {
+    background-color: var(--bcv-surface-2) !important;
+    border-radius: 999px;
+}
+
+.bettercuv-dark .progress-bar {
+    background-color: var(--bcv-accent-strong) !important;
+    color: #101218 !important;
+}
+
+/* ---------- popover, tooltip y toast ---------- */
+
+.bettercuv-dark .popover {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    box-shadow: var(--bcv-shadow);
+}
+
+.bettercuv-dark .popover-header {
+    background-color: var(--bcv-surface-2) !important;
+    border-bottom: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
 .bettercuv-dark .popover-body {
-    background-color: var(--bg-light) !important;
-    color: var(--text) !important;
-    a {
-        color: #717171 !important;
-    }
-    .icon {
-        color: var(--text) !important;
-    }
+    background-color: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .popover-body a {
+    color: var(--bcv-accent) !important;
+}
+
+.bettercuv-dark .tooltip-inner {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .toast {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+/* ---------- notificaciones y mensajes ---------- */
+
+.bettercuv-dark .popover-region-container,
+.bettercuv-dark .popover-region-footer-container,
+.bettercuv-dark .popover-region-header-container {
+    background-color: var(--bcv-surface) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .popover-region-header-text,
+.bettercuv-dark .popover-region-header-actions {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .popover-region-container .notification,
+.bettercuv-dark .popover-region-container .message {
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .popover-region-container .content-item-container,
+.bettercuv-dark .popover-region-container .notification,
+.bettercuv-dark .popover-region-container .message {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .popover-region-container .content-item-container {
+    border-bottom: 1px solid var(--bcv-border) !important;
+}
+
+.bettercuv-dark .popover-region-container .notification:hover,
+.bettercuv-dark .popover-region-container .message:hover {
+    background-color: var(--bcv-surface-2) !important;
+}
+
+.bettercuv-dark .popover-region-container .notification .subject,
+.bettercuv-dark .popover-region-container .message .subject {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .popover-region-container .notification .content,
+.bettercuv-dark .popover-region-container .message .content,
+.bettercuv-dark .popover-region-container .notification .timestamp,
+.bettercuv-dark .popover-region-container .message .timestamp {
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .message-app,
+.bettercuv-dark .message-app .message-drawer,
+.bettercuv-dark .message-app .messages-container,
+.bettercuv-dark .message-app .message-area {
+    background-color: var(--bcv-bg-elev) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .message-app .header,
+.bettercuv-dark .message-app .message-app-header,
+.bettercuv-dark .message-app .footer {
+    background-color: var(--bcv-surface) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .message-app .message,
+.bettercuv-dark .message-app .message-content {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .message-app .message.send {
+    background-color: var(--bcv-accent-soft) !important;
+}
+
+/* La burbuja recibida viene blanca, con el texto ya claro encima. */
+.bettercuv-dark .message-app .message.received {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+}
+
+/* Bootstrap usa .border-end con #dee2e6 entre el panel de contactos y el chat. */
+.bettercuv-dark .message-app .border-end {
+    border-color: var(--bcv-border) !important;
+}
+
+/* ---------- modales ---------- */
+
+.bettercuv-dark .modal-content {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 14px;
+    color: var(--bcv-text) !important;
+    box-shadow: var(--bcv-shadow);
+}
+
+.bettercuv-dark .modal-header,
+.bettercuv-dark .modal-footer {
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .modal-backdrop.show {
+    opacity: 0.7;
+}
+
+.bettercuv-dark .close {
+    color: var(--bcv-text) !important;
+    opacity: 0.7;
+    text-shadow: none;
+}
+
+.bettercuv-dark .close:hover {
+    opacity: 1;
+}
+
+/* ---------- footer ---------- */
+
+.bettercuv-dark #page-footer,
+.bettercuv-dark .footer {
+    background-color: var(--bcv-bg-elev) !important;
+    border-top: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* El footer flotante tambien lleva #page-footer: hay que ganarle en especificidad. */
+.bettercuv-dark #page-footer.footer-popover {
+    background-color: transparent !important;
+    border-top: 0 !important;
+}
+
+.bettercuv-dark #page-footer a,
+.bettercuv-dark .footer a {
+    color: var(--bcv-text-muted);
+}
+
+.bettercuv-dark #page-footer a:hover,
+.bettercuv-dark .footer a:hover {
+    color: var(--bcv-text);
+}
+
+/* ---------- foro ---------- */
+
+.bettercuv-dark .forumpost {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .forumpost .header {
+    background-color: transparent !important;
+    border-bottom: 0 !important;
+}
+
+.bettercuv-dark .forumpost .content,
+.bettercuv-dark .forumpost .post-content,
+.bettercuv-dark .post-content {
+    background: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .forumpost .post-actions,
+.bettercuv-dark .forum-post-actions {
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .discussion,
+.bettercuv-dark .discussion-list,
+.bettercuv-dark .discussion-list-item {
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .discussion-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.bettercuv-dark .forum-post-rating,
+.bettercuv-dark .post-rating {
+    background-color: var(--bcv-surface-2) !important;
+}
+
+/* ---------- cuestionarios ---------- */
+
+.bettercuv-dark .que {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .que .info {
+    background-color: var(--bcv-surface-2) !important;
+    border-right: 1px solid var(--bcv-border) !important;
+}
+
+.bettercuv-dark .que .content,
+.bettercuv-dark .que .formulation,
+.bettercuv-dark .que .answer,
+.bettercuv-dark .que .outcome,
+.bettercuv-dark .que .comment,
+.bettercuv-dark .que .history {
+    background: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .que .answer .r0,
+.bettercuv-dark .que .answer .r1 {
+    background: transparent !important;
+}
+
+.bettercuv-dark .que .specificfeedback,
+.bettercuv-dark .que .feedback,
+.bettercuv-dark .que .numpartscorrect {
+    background-color: rgba(127, 214, 160, 0.08) !important;
+    border-left: 3px solid var(--bcv-success) !important;
+    border-radius: 8px;
+}
+
+.bettercuv-dark .quizreviewsummary,
+.bettercuv-dark .quizreviewsummary th,
+.bettercuv-dark .quizreviewsummary td {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .im-controls .btn {
+    color: var(--bcv-text) !important;
+}
+
+/* ---------- calendario ---------- */
+
+.bettercuv-dark .calendartable,
+.bettercuv-dark .calendar {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .calendartable th,
+.bettercuv-dark .calendartable td {
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .calendartable th {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .calendartable td:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.bettercuv-dark .calendar_event_course,
+.bettercuv-dark .calendar_event_group,
+.bettercuv-dark .calendar_event_user {
+    background-color: var(--bcv-accent-soft) !important;
+    color: var(--bcv-text) !important;
+    border-radius: 4px;
+}
+
+/* ---------- login ---------- */
+
+.bettercuv-dark .login-wrapper,
+.bettercuv-dark .login-container {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 14px;
+}
+
+/* ---------- tarea (mod/assign) ---------- */
+
+/* Moodle pinta los estados con verdes claros y texto negro sobre el tema oscuro. */
+.bettercuv-dark .submissionstatustable td {
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .submissionstatussubmitted,
+.bettercuv-dark .earlysubmission {
+    background-color: rgba(127, 214, 160, 0.12) !important;
+}
+
+.bettercuv-dark .submissionstatusdraft {
+    background-color: rgba(240, 198, 116, 0.12) !important;
+}
+
+.bettercuv-dark .latesubmission {
+    background-color: rgba(255, 154, 154, 0.12) !important;
+}
+
+.bettercuv-dark .submissionnotgraded {
+    color: var(--bcv-text-muted) !important;
+}
+
+/* El fieldset del formulario de entrega dibuja una linea antes de los botones. */
+.bettercuv-dark .editsubmissionform fieldset.collapsible {
+    border-bottom: 0 !important;
+}
+
+/* ---------- cuestionario (mod/quiz) ---------- */
+
+/* Navegacion de preguntas: Moodle pinta cada estado con un fondo claro. */
+.bettercuv-dark .qnbutton {
+    background-color: var(--bcv-surface-2) !important;
+    color: var(--bcv-text) !important;
+    border-color: var(--bcv-border) !important;
+}
+
+.bettercuv-dark .qnbutton .trafficlight {
+    background-color: transparent !important;
+}
+
+.bettercuv-dark .qnbutton.correct {
+    background-color: rgba(127, 214, 160, 0.18) !important;
+}
+
+.bettercuv-dark .qnbutton.partiallycorrect,
+.bettercuv-dark .qnbutton.answersaved {
+    background-color: rgba(240, 198, 116, 0.18) !important;
+}
+
+.bettercuv-dark .qnbutton.incorrect {
+    background-color: rgba(255, 154, 154, 0.18) !important;
+}
+
+.bettercuv-dark .qnbutton.notanswered,
+.bettercuv-dark .qnbutton.invalidanswer {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ---------- file picker (YUI) ---------- */
+
+.bettercuv-dark .moodle-dialogue-wrap {
+    background-color: var(--bcv-surface) !important;
+    border: 1px solid var(--bcv-border) !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.bettercuv-dark .moodle-dialogue-hd {
+    background-color: var(--bcv-surface-2) !important;
+    border-bottom: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .moodle-dialogue-bd {
+    background-color: transparent !important;
+    color: var(--bcv-text) !important;
+}
+
+.bettercuv-dark .fp-content {
+    background-color: transparent !important;
+    border-color: var(--bcv-border) !important;
+}
+
+/* El icono de carpeta del pathbar es un SVG negro como background-image. */
+.bettercuv-dark .fp-pathbar .fp-path-folder {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23a6aec4' d='M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z'/%3E%3C/svg%3E") !important;
+}
+
+.bettercuv-dark .fp-thumbnail {
+    background-color: var(--bcv-surface-2) !important;
+    border-color: var(--bcv-border) !important;
+}
+
+/* Los iconos de tipo de archivo son SVG con fill #212529. */
+.bettercuv-dark .fp-thumbnail img[src*="/theme/image.php/"] {
+    filter: invert(0.9);
+}
+
+.bettercuv-dark .fp-filename {
+    background-color: transparent !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+.bettercuv-dark .fp-file:hover {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Zona de drop vacia: borde punteado gris claro sobre el fondo oscuro. */
+.bettercuv-dark .fm-empty-container {
+    border-color: var(--bcv-border-strong) !important;
+}
+
+.bettercuv-dark .fp-btn-add > a,
+.bettercuv-dark .fp-btn-mkdir > a,
+.bettercuv-dark .fp-btn-download > a {
+    background-color: var(--bcv-surface-2) !important;
+    border: 1px solid var(--bcv-border) !important;
+    color: var(--bcv-text-muted) !important;
+}
+
+/* ---------- utilidades de Bootstrap que traen blanco ---------- */
+
+.bettercuv-dark .bg-white,
+.bettercuv-dark .bg-light {
+    background-color: var(--bcv-surface) !important;
+}
+
+.bettercuv-dark .border,
+.bettercuv-dark .border-top,
+.bettercuv-dark .border-bottom,
+.bettercuv-dark .border-left,
+.bettercuv-dark .border-right {
+    border-color: var(--bcv-border) !important;
 }

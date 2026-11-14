@@ -11,7 +11,12 @@ let settings = DEFAULTS;
 let sesskey: string | undefined;
 let timer: number | undefined;
 
-const isLoggedIn = () => document.body?.classList.contains("loggedin") ?? false;
+const isLoggedIn = () => {
+    // Este tema no agrega la clase "loggedin"; M.cfg.userId es la senal confiable.
+    const userId = (window as unknown as { M?: { cfg?: { userId?: number } } }).M
+        ?.cfg?.userId;
+    return document.body?.classList.contains("loggedin") || (userId ?? 0) > 0;
+};
 
 const apply = () => {
     document.documentElement.classList.toggle("bettercuv-dark", settings.dark);
